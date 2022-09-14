@@ -43,28 +43,26 @@ group by dv.ten_dich_vu;
 
 -- Task_8
 
-select khach_hang.ho_ten
-from khach_hang
-group by khach_hang.ho_ten > 1;
+select distinct ho_ten from khach_hang;
 
 -- Task_9
 
 select
-    month(hop_dong.ngay_lam_hop_dong) thang,
-    count(hop_dong.ngay_lam_hop_dong) so_luong_khach_hang
-from hop_dong
-where year(hop_dong.ngay_lam_hop_dong) = '2021'
-group by month(hop_dong.ngay_lam_hop_dong)
+    month(hd.ngay_lam_hop_dong) thang,
+    count(hd.ngay_lam_hop_dong) so_luong_khach_hang
+from hop_dong hd
+where year(hd.ngay_lam_hop_dong) = '2021'
+group by month(hd.ngay_lam_hop_dong)
 order by thang;
 
 -- Task_10
 
 select
-    hop_dong.ma_hop_dong,
-    hop_dong.ngay_lam_hop_dong,
-    hop_dong.ngay_ket_thuc,
-    hop_dong.tien_dat_coc,
-    sum(ifnull(hop_dong_chi_tiet.so_luong, 0)) so_luong_dich_vu_di_kem
-from hop_dong
-	left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
-group by hop_dong.ma_hop_dong;
+    hd.ma_hop_dong,
+    hd.ngay_lam_hop_dong,
+    hd.ngay_ket_thuc,
+    hd.tien_dat_coc,
+    sum(ifnull(hdct.so_luong, 0)) so_luong_dich_vu_di_kem
+from hop_dong hd
+	left join hop_dong_chi_tiet hdct on hdct.ma_hop_dong = hd.ma_hop_dong
+group by hd.ma_hop_dong;
