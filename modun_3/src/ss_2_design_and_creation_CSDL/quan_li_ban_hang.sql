@@ -1,23 +1,24 @@
-create database if not exists quan_li_ban_hang;
+drop database if  exists quan_li_ban_hang;
+create database  quan_li_ban_hang;
 use quan_li_ban_hang;
 create table customer(
-cID int primary key auto_increment,
-cName varchar(45),
-cAge int);
+customer_id int primary key auto_increment,
+customer_name varchar(45),
+customer_age int);
 create table orders(
-oID int primary key auto_increment,
-cID int,
-foreign key (cID) references customer(cID),
-oDate date,
-oTotalprice int);
+orders_id int primary key auto_increment,
+customer_id int,
+foreign key (customer_id) references customer(customer_id),
+orders_date date,
+orders_total_price int);
 create table product(
-pID int primary key auto_increment,
-pName varchar(45),
-pPrice int);
-create table order_daitail(
-oID int,
-foreign key (oID) references orders(oID),
-pID int,
-foreign key (pID) references product(pID),
-odQTY int);
+product_id int primary key auto_increment,
+product_name varchar(45),
+product_price int);
+create table order_detail(
+orders_id int,
+foreign key (orders_id) references orders(orders_id),
+product_id int,
+foreign key (product_id) references product(product_id),
+orders_quantity int);
  

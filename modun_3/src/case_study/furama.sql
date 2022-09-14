@@ -1,4 +1,5 @@
-create database if not exists furama;
+drop database if exists furama;
+create database furama;
 use furama;
 create table vi_tri(
 ma_vi_tri int primary key auto_increment,
