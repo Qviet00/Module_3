@@ -11,7 +11,8 @@ select
 from dich_vu dv
 	join loai_dich_vu ldv on dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
 	join hop_dong hd on hd.ma_dich_vu = dv.ma_dich_vu
-where dv.ma_dich_vu not in (select dv.ma_dich_vu
+where dv.ma_dich_vu not in (
+	select dv.ma_dich_vu
     from dich_vu dv
 	join hop_dong hd on hd.ma_dich_vu = dv.ma_dich_vu
 where
@@ -33,9 +34,10 @@ select
 from dich_vu dv
 	join loai_dich_vu ldv on dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
 	join hop_dong hd on hd.ma_dich_vu = dv.ma_dich_vu
-where dv.ma_dich_vu not in (select dv.ma_dich_vu
+where dv.ma_dich_vu not in (
+	select dv.ma_dich_vu
 	from dich_vu dv
-	join hop_dong hd ON hd.ma_dich_vu = dv.ma_dich_vu
+	join hop_dong hd on hd.ma_dich_vu = dv.ma_dich_vu
 	where (hd.ngay_lam_hop_dong) between '2021-01-01' and '2021-12-31'
 	group by dv.ten_dich_vu)
 	and year(hd.ngay_lam_hop_dong) = '2020'

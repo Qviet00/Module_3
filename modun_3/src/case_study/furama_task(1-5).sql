@@ -27,7 +27,7 @@ select
     dv.ten_dich_vu,
     hd.ngay_lam_hop_dong,
     hd.ngay_ket_thuc,
-    sum((ifnull(hdct.so_luong * dvdk.gia, 0)) + chi_phi_thue) tong_tien
+    sum((ifnull(hdct.so_luong * dvdk.gia, 0)) + (chi_phi_thue)) tong_tien
 from khach_hang kh
 left join loai_khach lk on kh.ma_loai_khach = lk.ma_loai_khach
 left join hop_dong hd on hd.ma_khach_hang = kh.ma_khach_hang
