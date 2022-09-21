@@ -1,19 +1,19 @@
 drop database if exists student_managerment;
 create database student_managerment ;
 use student_managerment;
-create table student(
-ID_student int primary key auto_increment,
-name_student varchar(45),
-name_class varchar(50),
-age int,
-addres varchar(45)
+CREATE TABLE student (
+    ID_student INT PRIMARY KEY AUTO_INCREMENT,
+    name_student VARCHAR(45),
+    name_class VARCHAR(50),
+    age INT,
+    addres VARCHAR(45)
 );
-create table teacher(
-ID_teacher int primary key auto_increment,
-name_teacher varchar(45),
-levels varchar(50),
-age int,
-addres varchar(45)
+CREATE TABLE teacher (
+    ID_teacher INT PRIMARY KEY AUTO_INCREMENT,
+    name_teacher VARCHAR(45),
+    levels VARCHAR(50),
+    age INT,
+    addres VARCHAR(45)
 );
 insert into student
 values(1,"Hải","C0622G1",18,"Đà nẵng"),
@@ -21,5 +21,11 @@ values(1,"Hải","C0622G1",18,"Đà nẵng"),
 insert into teacher
 values(1,"Hải","Tutor",18,"Đà nẵng"),
 	  (2,"Nam","Tutor",19,"Đà nẵng");
-select * from student;
-select * from teacher;
+SELECT 
+    *
+FROM
+    student;
+SELECT 
+    *
+FROM
+    teacher;
