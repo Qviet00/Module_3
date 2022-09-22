@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tạo giao diện giản lược của facebook</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+    header {
+      height: 60px;
+      display: flex;
+      box-shadow: 1px 0 5px #e0e2e5;
+      padding: 8px 12px;
+    }
+    .search{
+      width: 25%;
+      display: flex;
+      align-items: center;
+    }
+    .logo i{
+      color: #139cf7;
+      font-size: 36px;
+      margin-right: 12px;
+    }
+    .search{
+      background-color: #f0f2f5;
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      border-radius: 20px;
+      margin-right: 12px;
+    }
+    .search i{
+      color: #65676b;
+    }
+    .search .input-search{
+      border: none;
+      background-color: transparent;
+      font-size: 16px;
+      margin-left: 12px;
+    }
+    .navsub{
+      display: flex;
+      width: 50%;
+      align-items: center;
+    }
+    .navsub i{
+      color: #65676b;
+      font-size: 10px;
+    }
+    .navtop-icon{
+      width: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .navtop-icon.sub{
+      border-bottom: 2px solid #139cf7;
+    }
+    .navsub .navtop-icon i.sub{
+      color: #139cf7;
+    }
+
+    .personal{
+      display: flex;
+      flex: 1;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .personal i {
+      color: #050505;
+      font-size: 20px;
+    }
+    .box-personal{
+      height: 30px;
+      display: inline-block;
+      background-color: #e4e6eb;
+      margin-left: 20px;
+      border-radius: 25%;
+    }
+
+    .box-personal.account i{
+      color: transparent;
+    }
+
+    #s-body{
+      background-color: black;
+    }
+
+    #left{
+      width: 25%;
+      min-height: 1000px;
+      border: 1px solid #CDCDCD ;
+      float:left;
+      margin-bottom: 5px;
+    }
+
+    #left li {
+      display: flex;
+      border: 1px solid;
+    }
+
+    #left ul{
+      padding-top: 10%;
+    }
+
+    #content{
+      width: 50%;
+      border: 1px solid #CDCDCD;
+      float:left;
+    }
+
+    #right{
+      width: 25%;
+      min-height: 1000px;
+      border: 1px solid #CDCDCD ;
+      float:right;
+      margin-bottom: 5px;
+    }
+  </style>
+  <script src="all.js"></script>
+</head>
+<body>
+<div class="facebook">
+  <header>
+    <div class="search">
+      <div class="logo">
+        <img src="https://cdn.eyeonsouthport.co.uk/20211004171024/0f7811ae40778c9ad7ae8262eccfdddbc2ff3dcea0a539cb118df4b45f99b0dc.png  "
+             width="40" height="40">
+      </div>
+      <div class="search">
+        <input class="input-search" type="text" name="" id="" placeholder="Tìm kiếm trên Facebook...">
+      </div>
+    </div>
+    <nav class="navsub">
+      <div class="navtop-icon sub home" title="Trang chu">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/201/201128.png" width="40"
+                         height="40"></a>
+      </div>
+      <div class="navtop-icon friend">
+        <a href="#"><img src="https://cdn4.iconfinder.com/data/icons/facebook-and-social-media-1/64/Facebook_and_Social_Media-04-512.png"
+                         width="40"
+                         height="40"></a>
+      </div>
+      <div class="navtop-icon watch">
+        <a href="#"><img src="https://static.thenounproject.com/png/423395-200.png"
+                         width="40" height="40"></a>
+      </div>
+      <div class="navtop-icon marketplace">
+        <a href="#"><img src="https://img.icons8.com/ios/452/facebook-gaming.png"
+                         width="40" height="40"></a>
+      </div>
+    </nav>
+    <div class="personal">
+      <div class="box-personal">
+        <a href="#"><i style=""height="32" width="32" class="fas fa-server"></i></a>
+
+      </div>
+      <div class="box-personal">
+        <a href="#"><img src="https://www.iconpacks.net/icons/2/free-facebook-messenger-icon-2880-thumb.png"
+                         width="32" height="32"></a>
+      </div>
+      <div class="box-personal">
+        <a href="#"><img src="https://www.pinclipart.com/picdir/middle/369-3699390_notification-png-notification-icon-png-free-clipart.png"
+                         width="32" height="32"></a>
+      </div>
+      <div class="box-personal account">
+        <a href="#"><img src="../Truyen_tranh/logo.png"
+                         width="32" height="32"></a>
+      </div>
+    </div>
+  </header>
+  <div id="s-body">
+    <div id="left">
+    </div>
+    <div id="content">
+    </div>
+    <div id="right">
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
