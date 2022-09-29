@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="catalina">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../tomcat-9.0.65/lib/catalina.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../tomcat-9.0.65/lib/ecj-4.20.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../tomcat-9.0.65/lib/el-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../tomcat-9.0.65/lib/jasper-el.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../tomcat-9.0.65/lib/jasper.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../tomcat-9.0.65/lib/jaspic-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../tomcat-9.0.65/lib/jsp-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../tomcat-9.0.65/lib/servlet-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
