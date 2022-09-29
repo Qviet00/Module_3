@@ -11,6 +11,7 @@ public class CalculatorServlet extends HttpServlet {
         float secondOperand = Float.parseFloat(request.getParameter("Số thứ hai"));
         String operator = request.getParameter("operation");
         String result;
+
         switch (operator) {
             case "Addition":
                 result = String.valueOf(firstOperand + secondOperand);
