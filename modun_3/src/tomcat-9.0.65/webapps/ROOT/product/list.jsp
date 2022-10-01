@@ -15,14 +15,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
-<%--  <style>--%>
-<%--    h1 {--%>
-<%--      text-align: center;--%>
-<%--    }--%>
-<%--    a {--%>
-<%--      color: black;--%>
-<%--    }--%>
-<%--  </style>--%>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    a {
+      color: black;
+    }
+  </style>
 </head>
 <body>
 <h2 style="text-align: center">Quản lý sản phẩm</h2>
@@ -31,9 +31,9 @@
 </p>
 <form class="d-flex justify-content-end" action="/product?action=search">
   <input type="text" name="nameSearch" placeholder="Nhập tên cần tìm kiếm" style="margin-right: 20px;">
-  <input type="submit" name="action" value="Tìm kiếm" style="margin-right: 20px;">
+  <input type="submit" name="action" value="search" style="margin-right: 20px;">
 </form>
-<table border=1>
+<table class="table table-striped">
   <tr>
     <%--        <th>Mã sản phẩm</th>--%>
     <th>Name</th>

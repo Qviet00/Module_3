@@ -26,7 +26,7 @@ public class ProductServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                addNewProduct(request,response);
+                addNewProduct(request, response);
                 break;
             case "update":
                 updateProduct(request, response);
@@ -35,7 +35,7 @@ public class ProductServlet extends HttpServlet {
                 deleteProduct(request, response);
                 break;
             default:
-                listProduct(request,response);
+                listProduct(request, response);
                 break;
         }
     }
@@ -71,14 +71,14 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
-        List<Product> productList = new ArrayList<>();
+        List<Product> productList ;
         String name = request.getParameter("nameSearch");
-        productList=iProductService.seachByName(name);
+        productList = iProductService.seachByName(name);
         request.setAttribute("name", name);
-        request.setAttribute("productList",productList);
+        request.setAttribute("productList", productList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("product/search.jsp");
         try {
-            dispatcher.forward(request,response);
+            dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
@@ -193,7 +193,7 @@ public class ProductServlet extends HttpServlet {
             product.setPrice(price);
             product.setDescription(description);
             product.setProducer(producer);
-            iProductService.update(id,product);
+            iProductService.update(id, product);
             request.setAttribute("product", product);
             request.setAttribute("message", "Cập nhập sản phẩm thành công");
             dispatcher = request.getRequestDispatcher("product/update.jsp");

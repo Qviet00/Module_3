@@ -31,7 +31,7 @@
 </p>
 <form class="d-flex justify-content-end" action="/product?action=search">
   <input type="text" name="nameSearch" placeholder="Nhập tên cần tìm kiếm" style="margin-right: 20px;">
-  <input type="submit" name="action" value="Tìm kiếm" style="margin-right: 20px;">
+  <input type="submit" name="action" value="search" style="margin-right: 20px;">
 </form>
 <table class="table table-striped">
   <tr>

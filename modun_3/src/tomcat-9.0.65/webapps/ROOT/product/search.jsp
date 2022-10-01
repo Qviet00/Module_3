@@ -23,7 +23,7 @@
 <h1>Products</h1>
 <a href="/product">
     Home
-</a></br>
+</a><br>
 <table class="table table-striped">
     <tr>
         <td>Product Name</td>
