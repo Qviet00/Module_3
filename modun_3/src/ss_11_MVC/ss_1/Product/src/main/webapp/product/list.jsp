@@ -52,7 +52,7 @@
       <td>${product.getDescription()}</td>
       <td>${product.getProducer()}</td>
       <td><a href="/product?action=update&id=${product.getId()} " class="btn btn-primary" role="button">Edit</a></td>
-      <td><a href="/product?action=delete&id=${product.getId()}" class="btn btn-primary" role="button">Delete</a></td>
+      <td><a href="/product?action=delete&id=${prodưuct.getId()}" class="btn btn-primary" role="button">Delete</a></td>
       <td><a href="/product?action=view&id=${product.getId()}" class="btn btn-primary" role="button">View</a></td>
     </tr>
   </c:forEach>
