@@ -27,7 +27,7 @@
         <table>
             <tr>
                 <td>Name: </td>
-                <td><input type="text" name="name" id="name" value="${requestScope["customer"].getName()}"></td>
+                <td><input required pattern="^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+$" type="text" name="name" id="name" value="${requestScope["customer"].getName()}"></td>
             </tr>
             <tr>
                 <td>Model: </td>

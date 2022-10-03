@@ -16,7 +16,7 @@
 <p>Search</p>
 <form action="/customers?action=search">
 <input type="text" name="nameSearch" placeholder="Nhập tên sản phẩm cần tìm" style="margin-right: 20px">
-<input type="submit" name="action" value="search" style="margin-right: 20px">
+<input type="submit" name="action" value="Search" style="margin-right: 20px">
 </form>
 <table border=1>
     <tr>
