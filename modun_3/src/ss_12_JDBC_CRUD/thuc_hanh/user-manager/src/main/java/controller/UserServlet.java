@@ -13,13 +13,8 @@ import java.util.List;
 
 @WebServlet(name = "UserServlet", urlPatterns = "/users")
 public class UserServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
-    private IUserService userDAO;
-
-    public void init() {
-        userDAO = new UserService();
-    }
+    private IUserService userDAO = new UserService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

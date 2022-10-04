@@ -31,6 +31,10 @@
         <td>Phone: </td>
         <td>${requestScope["user"].getPhone()}</td>
     </tr>
+    <tr>
+        <td>Startus: </td>
+        <td><p>Tôi yêu màu tím</p></td>
+    </tr>
 </table>
 </body>
 </html>

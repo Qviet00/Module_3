@@ -25,9 +25,6 @@ public class UserService implements IUserService {
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country = ?, phone = ? where id = ?;";
 
-    public UserService() {
-    }
-
     protected Connection getConnection() {
         Connection connection = null;
         try {
@@ -39,9 +36,11 @@ public class UserService implements IUserService {
         return connection;
     }
 
-    public void insertUser(User user) throws SQLException {
+    public void insertUser(User user) {
         System.out.println(INSERT_USERS_SQL);
-        try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
+        try {
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getCountry());
@@ -55,8 +54,9 @@ public class UserService implements IUserService {
 
     public User selectUser(int id) {
         User user = null;
-        try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);) {
+        try {
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);
             preparedStatement.setInt(1, id);
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
@@ -66,21 +66,19 @@ public class UserService implements IUserService {
                 String email = rs.getString("email");
                 String country = rs.getString("country");
                 String phone = rs.getString("phone");
-                user = new User(id, name, email, country,phone);
+                user = new User(id, name, email, country, phone);
             }
         } catch (SQLException e) {
-            printSQLException(e);;
+            printSQLException(e);
         }
         return user;
     }
 
     public List<User> selectAllUsers() {
-
         List<User> users = new ArrayList<>();
-
-        try (Connection connection = getConnection();
-
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
+        try {
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -90,7 +88,7 @@ public class UserService implements IUserService {
                 String email = rs.getString("email");
                 String country = rs.getString("country");
                 String phone = rs.getString("phone");
-                users.add(new User(id, name, email, country,phone));
+                users.add(new User(id, name, email, country, phone));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -100,37 +98,44 @@ public class UserService implements IUserService {
     }
 
     public boolean deleteUser(int id) throws SQLException {
-        boolean rowDeleted;
-        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
+        boolean rowDeleted = false;
+        try {
+            Connection connection = getConnection();
+            PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);
             statement.setInt(1, id);
             rowDeleted = statement.executeUpdate() > 0;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
         return rowDeleted;
     }
 
     public boolean updateUser(User user) throws SQLException {
-        boolean rowUpdated;
-        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
+        boolean rowUpdated = false;
+        try {
+            Connection connection = getConnection();
+            PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);
             statement.setString(1, user.getName());
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getCountry());
             statement.setString(4, user.getPhone());
             statement.setInt(5, user.getId());
-
             rowUpdated = statement.executeUpdate() > 0;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
         return rowUpdated;
     }
 
     public List<User> searchByCountry(String country) {
-       List<User> foundedUser= new ArrayList<>();
+        List<User> foundedUser = new ArrayList<>();
         List<User> users = selectAllUsers();
-       for (User x : users){
-           if (x.getCountry().equals(country)){
-               foundedUser.add(x);
-           }
-       }
-       return foundedUser;
+        for (User x : users) {
+            if (x.getCountry().equals(country)) {
+                foundedUser.add(x);
+            }
+        }
+        return foundedUser;
     }
 
     private void printSQLException(SQLException ex) {
