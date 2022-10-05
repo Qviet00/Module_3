@@ -1,7 +1,7 @@
 package controller;
 
-import service.IUserService;
-import service.UserService;
+import repository.IUserRepository;
+import repository.UserRepository;
 import model.User;
 
 import javax.servlet.*;
@@ -14,7 +14,7 @@ import java.util.List;
 @WebServlet(name = "UserServlet", urlPatterns = "/users")
 public class UserServlet extends HttpServlet {
 
-    private IUserService userDAO = new UserService();
+    private IUserRepository userDAO = new UserRepository();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

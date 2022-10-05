@@ -39,33 +39,41 @@ public class CustomerRepository implements ICustomerRepository {
 
     @Override
     public List<Customer> finAllCustomer() {
-        List<Customer> customersList = new ArrayList<>();
+        List<Customer> customerList = new ArrayList<>();
         Connection connection = getConnectDB();
         try {
-            PreparedStatement preparedStatement =connection.prepareStatement(FIND_ALL);
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_ALL);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                int customerId = resultSet.getInt("customer_id");
+                int customerId=resultSet.getInt("customer_id");
                 String customerName = resultSet.getString("customer_name");
                 String customerBirthday = resultSet.getString("customer_birthday");
-                int customerGender = resultSet.getInt("customer_gender");
+                Boolean customerGender =resultSet.getBoolean("customer_gender");
                 String customerIdCard = resultSet.getString("customer_id_card");
                 String customerPhone = resultSet.getString("customer_phone");
                 String customerEmail = resultSet.getString("customer_email");
                 String customerAddress = resultSet.getString("customer_address");
                 int customerTypeId = resultSet.getInt("customer_type_id");
-
-                Customer customer = new Customer(customerId, customerName, customerBirthday, customerGender, customerIdCard, customerPhone, customerEmail, customerAddress, customerTypeId);
-                customersList.add(customer);
+                Customer customer= new Customer(customerId,customerName,customerBirthday,customerGender,customerIdCard,customerPhone,
+                        customerEmail,customerAddress,customerTypeId);
+                customerList.add(customer);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return customerList;
     }
-
     @Override
     public boolean createCustomer(Customer customer) {
+        System.out.println(INSERT);
+        Connection connection = getConnectDB();
+        try {
+            PreparedStatement preparedStatement=connection.prepareStatement(INSERT);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 

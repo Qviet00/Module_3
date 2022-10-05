@@ -41,7 +41,8 @@ public class UserRepository implements IUserRepository {
 
     public void insertUser(User user) throws SQLException {
         System.out.println(INSERT_USERS_SQL);
-        try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getCountry());
@@ -66,10 +67,11 @@ public class UserRepository implements IUserRepository {
                 String email = rs.getString("email");
                 String country = rs.getString("country");
                 String phone = rs.getString("phone");
-                user = new User(id, name, email, country,phone);
+                user = new User(id, name, email, country, phone);
             }
         } catch (SQLException e) {
-            printSQLException(e);;
+            printSQLException(e);
+            ;
         }
         return user;
     }
@@ -79,7 +81,6 @@ public class UserRepository implements IUserRepository {
         List<User> users = new ArrayList<>();
 
         try (Connection connection = getConnection();
-
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
@@ -90,7 +91,7 @@ public class UserRepository implements IUserRepository {
                 String email = rs.getString("email");
                 String country = rs.getString("country");
                 String phone = rs.getString("phone");
-                users.add(new User(id, name, email, country,phone));
+                users.add(new User(id, name, email, country, phone));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -123,14 +124,14 @@ public class UserRepository implements IUserRepository {
     }
 
     public List<User> searchByCountry(String country) {
-       List<User> foundedUser= new ArrayList<>();
+        List<User> foundedUser = new ArrayList<>();
         List<User> users = selectAllUsers();
-       for (User x : users){
-           if (x.getCountry().equals(country)){
-               foundedUser.add(x);
-           }
-       }
-       return foundedUser;
+        for (User x : users) {
+            if (x.getCountry().equals(country)) {
+                foundedUser.add(x);
+            }
+        }
+        return foundedUser;
     }
 
     private void printSQLException(SQLException ex) {

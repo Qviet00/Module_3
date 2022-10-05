@@ -69,7 +69,7 @@ public class UserServlet extends HttpServlet {
                     searchUser(request, response);
                     break;
                 default:
-                    searchUser(request, response);
+                  searchUser(request, response);
                     break;
             }
         } catch (SQLException ex) {
@@ -87,7 +87,7 @@ public class UserServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
+//
 //    private void listUser(HttpServletRequest request, HttpServletResponse response)
 //            throws SQLException {
 //        List<User> listUser = userRepository.selectAllUsers();
