@@ -1,4 +1,4 @@
-package service;
+package repository;
 
 import model.User;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class UserService implements IUserService {
+public class UserRepository implements IUserRepository {
     private String jdbcURL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
     private String jdbcUsername = "root";
     private String jdbcPassword = "viet231993";
@@ -25,7 +25,7 @@ public class UserService implements IUserService {
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country = ?, phone = ? where id = ?;";
 
-    public UserService() {
+    public UserRepository() {
     }
 
     protected Connection getConnection() {

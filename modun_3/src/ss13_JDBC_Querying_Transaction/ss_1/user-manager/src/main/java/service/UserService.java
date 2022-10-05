@@ -13,9 +13,7 @@ public class UserService implements IUserService {
     private String jdbcPassword = "viet231993";
 
 
-    private static final String INSERT_USERS_SQL = "INSERT INTO users" + "  (name, email, country, phone) VALUES " +
-            " (?, ?, ?, ?);";
-
+    private static final String INSERT_USERS_SQL = "INSERT INTO users" + "  (name, email, country, phone) VALUES " + " (?, ?, ?, ?);";
     private static final String SELECT_USER_BY_ID = "select id,name,email,country,phone from users where id =?";
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
@@ -41,7 +39,7 @@ public class UserService implements IUserService {
             callableStatement.setString(1, user.getName());
             callableStatement.setString(2, user.getEmail());
             callableStatement.setString(3, user.getCountry());
-           callableStatement.setString(4, user.getPhone());
+            callableStatement.setString(4, user.getPhone());
             System.out.println(callableStatement);
             callableStatement.executeUpdate();
         } catch (SQLException e) {

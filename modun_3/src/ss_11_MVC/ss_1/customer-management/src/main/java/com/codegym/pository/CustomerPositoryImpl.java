@@ -1,11 +1,11 @@
-package com.codegym.service;
+package com.codegym.pository;
 
 import com.codegym.model.Customer;
-import com.codegym.service.Impl.CustomerService;
+import com.codegym.pository.Impl.CustomerPository;
 
 import java.util.*;
 
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerPositoryImpl implements CustomerPository {
 
     private static final Map<Integer, Customer> customers;
 

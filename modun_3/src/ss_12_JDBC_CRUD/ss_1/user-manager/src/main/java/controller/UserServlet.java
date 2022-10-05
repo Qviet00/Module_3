@@ -1,7 +1,7 @@
 package controller;
 
-import service.IUserService;
-import service.UserService;
+import repository.IUserRepository;
+import repository.UserRepository;
 import model.User;
 
 import javax.servlet.*;
@@ -15,10 +15,10 @@ import java.util.List;
 public class UserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    private IUserService userDAO;
+    private IUserRepository userRepository;
 
     public void init() {
-        userDAO = new UserService();
+        userRepository = new UserRepository();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -69,7 +69,7 @@ public class UserServlet extends HttpServlet {
                     searchUser(request, response);
                     break;
                 default:
-                    listUser(request, response);
+                    searchUser(request, response);
                     break;
             }
         } catch (SQLException ex) {
@@ -79,27 +79,26 @@ public class UserServlet extends HttpServlet {
 
     private void searchUser(HttpServletRequest request, HttpServletResponse response) {
         String countrySearch = request.getParameter("nameSearch");
-        List<User> foundedUsers = userDAO.searchByCountry(countrySearch);
+        List<User> foundedUsers = userRepository.searchByCountry(countrySearch);
         request.setAttribute("listUser", foundedUsers);
         try {
             request.getRequestDispatcher("user/list.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    private void listUser(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException {
-        List<User> listUser = userDAO.selectAllUsers();
-        request.setAttribute("listUser", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    private void listUser(HttpServletRequest request, HttpServletResponse response)
+//            throws SQLException {
+//        List<User> listUser = userRepository.selectAllUsers();
+//        request.setAttribute("listUser", listUser);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
+//        try {
+//            dispatcher.forward(request, response);
+//        } catch (ServletException | IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/create.jsp");
@@ -113,7 +112,7 @@ public class UserServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        User existingUser = userDAO.selectUser(id);
+        User existingUser = userRepository.selectUser(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
         request.setAttribute("user", existingUser);
         dispatcher.forward(request, response);
@@ -128,7 +127,7 @@ public class UserServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         int id = (int) (Math.random() * 10000);
         User newUser = new User(id, name, email, country, phone);
-        userDAO.insertUser(newUser);
+        userRepository.insertUser(newUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/create.jsp");
         request.setAttribute("message", "Thêm mới thành công");
         try {
@@ -148,7 +147,7 @@ public class UserServlet extends HttpServlet {
         String phone = request.getParameter("phone");
 
         User book = new User(id, name, email, country, phone);
-        userDAO.updateUser(book);
+        userRepository.updateUser(book);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
         dispatcher.forward(request, response);
     }
@@ -156,9 +155,9 @@ public class UserServlet extends HttpServlet {
     private void deleteUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
-        userDAO.deleteUser(id);
+        userRepository.deleteUser(id);
 
-        List<User> listUser = userDAO.selectAllUsers();
+        List<User> listUser = userRepository.selectAllUsers();
         request.setAttribute("listUser", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
         try {
@@ -170,7 +169,7 @@ public class UserServlet extends HttpServlet {
 
     private void viewUser(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
-        User user = userDAO.selectUser(id);
+        User user = userRepository.selectUser(id);
         RequestDispatcher dispatcher;
         if (user == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");

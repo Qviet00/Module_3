@@ -1,10 +1,10 @@
-package com.codegym.service.Impl;
+package com.codegym.pository.Impl;
 
 import com.codegym.model.Customer;
 
 import java.util.List;
 
-public interface CustomerService {
+public interface CustomerPository {
     List<Customer> findAll();
     List<Customer> searchByName(String name);
     void save(Customer customer);

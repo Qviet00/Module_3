@@ -1,11 +1,11 @@
-package service;
+package repository;
 
 import model.User;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface IUserService {
+public interface IUserRepository {
     void insertUser(User user) throws SQLException;
 
     User selectUser(int id);

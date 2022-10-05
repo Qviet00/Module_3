@@ -1,8 +1,8 @@
 package com.codegym.controller;
 
 import com.codegym.model.Customer;
-import com.codegym.service.Impl.CustomerService;
-import com.codegym.service.CustomerServiceImpl;
+import com.codegym.pository.Impl.CustomerPository;
+import com.codegym.pository.CustomerPositoryImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ import java.util.List;
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customers")
 public class CustomerServlet extends HttpServlet {
 
-    private final CustomerService customerService = new CustomerServiceImpl();
+    private final CustomerPository customerService = new CustomerPositoryImpl();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
