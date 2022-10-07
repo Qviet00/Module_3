@@ -25,9 +25,6 @@ public class UserRepository implements IUserRepository {
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country = ?, phone = ? where id = ?;";
 
-    public UserRepository() {
-    }
-
     protected Connection getConnection() {
         Connection connection = null;
         try {
@@ -71,7 +68,6 @@ public class UserRepository implements IUserRepository {
             }
         } catch (SQLException e) {
             printSQLException(e);
-            ;
         }
         return user;
     }

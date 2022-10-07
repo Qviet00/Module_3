@@ -16,12 +16,15 @@
         .row {
             box-sizing: border-box;
         }
+
         .sticky {
             display: block;
         }
+
         .bg-success {
             background-color: #046056 !important;
         }
+
         .nav-link {
             color: white;
         !important;
@@ -130,30 +133,41 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/customer">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/create">Employee</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Customer
+                        Facility
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item " href="/customer">List</a></li>
-                        <li><a class="dropdown-item" href="/customerType">Customer Type</a></li>
+                        <li><a class="dropdown-item " href="/customer">House</a></li>
+                        <li><a class="dropdown-item" href="/customerType">Villa</a></li>
+                        <li><a class="dropdown-item" href="/customerType">Room</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Employee</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="/facility">Facility</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Contract</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Contract
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item " href="/customer">House</a></li>
+                        <li><a class="dropdown-item" href="/customerType">Villa</a></li>
+                        <li><a class="dropdown-item" href="/customerType">Room</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
                 </li>
 
             </ul>

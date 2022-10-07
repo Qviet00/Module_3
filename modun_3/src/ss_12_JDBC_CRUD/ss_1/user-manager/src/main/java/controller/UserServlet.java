@@ -116,7 +116,6 @@ public class UserServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
         request.setAttribute("user", existingUser);
         dispatcher.forward(request, response);
-
     }
 
     private void createUser(HttpServletRequest request, HttpServletResponse response)
