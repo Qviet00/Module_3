@@ -15,7 +15,7 @@ import java.util.List;
 public class UserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    private IUserRepository userRepository;
+    private IUserRepository userRepository=new UserRepository();
 
     public void init() {
         userRepository = new UserRepository();

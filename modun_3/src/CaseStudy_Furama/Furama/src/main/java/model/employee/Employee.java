@@ -12,12 +12,13 @@ public class Employee {
     int positionId;
     int educationDegreeId;
     int divisionId;
+    String userName;
 
     public Employee() {
     }
 
     public Employee(int employeeId, String employeeName, String employeeBirthday, String employeeIdCard, double employeeSalary,
-                    String employeePhone, String employeeEmail, String employeeAddress, int positionId, int educationDegreeId, int divisionId) {
+                    String employeePhone, String employeeEmail, String employeeAddress, int positionId, int educationDegreeId, int divisionId,String userName) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.employeeBirthday = employeeBirthday;
@@ -29,10 +30,10 @@ public class Employee {
         this.positionId = positionId;
         this.educationDegreeId = educationDegreeId;
         this.divisionId = divisionId;
+        this.userName =userName;
     }
-
     public Employee(String employeeName, String employeeBirthday, String employeeIdCard, double employeeSalary,
-                    String employeePhone, String employeeEmail, String employeeAddress, int positionId, int educationDegreeId, int divisionId) {
+                    String employeePhone, String employeeEmail, String employeeAddress, int positionId, int educationDegreeId, int divisionId, String userName) {
 
         this.employeeName = employeeName;
         this.employeeBirthday = employeeBirthday;
@@ -44,6 +45,15 @@ public class Employee {
         this.positionId = positionId;
         this.educationDegreeId = educationDegreeId;
         this.divisionId = divisionId;
+        this.userName =userName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public int getEmployeeId() {

@@ -22,9 +22,9 @@
 <center>
     <form action="/users?action=search">
         <input type="text" name="nameSearch" placeholder="Nhập country cần tìm" style="margin-right: 40px">
-        <input type="submit" name="action" value="Search" style="margin-right: 40px">
+        <input type="submit" name="action" value="search" style="margin-right: 40px">
     </form>
-    <c:if test="${listUser.size() ==0 }">
+    <c:if test="${listCustomer.size() ==0 }">
         <p>Không tìm thấy </p>
     </c:if>
 </center>

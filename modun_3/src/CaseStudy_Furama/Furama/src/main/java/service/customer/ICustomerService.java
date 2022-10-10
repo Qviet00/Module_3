@@ -9,7 +9,11 @@ public interface ICustomerService {
 
     boolean newCustomer(Customer customer);
 
-    Customer editCustomer(int id);
+    boolean editCustomer(Customer customer);
+    Customer editById(int id);
+
     boolean deteleCustomer(int id);
+   List<Customer> searchCustomer(String name);
+   Map<String,String> add(Customer customer);
 
 }

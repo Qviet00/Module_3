@@ -137,7 +137,7 @@
                     <a class="nav-link text-light" href="/customer">Customer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="/create">Employee</a>
+                    <a class="nav-link text-light" href="/employee">Employee</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
